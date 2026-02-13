@@ -35,7 +35,7 @@ This project is part of my frontend portfolio and demonstrates strong skills in 
 
 HTML5
 
-CSS3 (custom properties, animations, responsive layout)
+CSS3 (custom properties, animations, responsive ineterface)
 
 Vanilla JavaScript (ES6)
 
