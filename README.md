@@ -1,141 +1,140 @@
-🚚 Ship-It – Logistics & Delivery Management System
-📌 Overview
+🚚 Ship-It – Система управления логистикой и доставкой
+📌 Обзор
 
-Ship-It is a logistics and delivery management system designed to streamline shipment tracking, order handling, and delivery workflows.
-The project focuses on building a scalable backend architecture, clean data handling, and modular services that simulate real-world shipping operations.
+Ship-It — это система управления логистикой и доставкой, предназначенная для оптимизации отслеживания отправлений, обработки заказов и рабочих процессов доставки.
+Проект направлен на создание масштабируемой серверной архитектуры, чистую обработку данных и модульные сервисы, которые моделируют реальные операции перевозок.
 
-It is built to demonstrate:
+Он создан для демонстрации:
 
-Backend system design
+Проектирования серверных систем;
 
-API architecture
+Архитектуры API;
 
-Data modeling for logistics
+Моделирования данных для логистики;
 
-Clean project structure for production-ready apps
+Чистой структуры проекта, готового к продакшену.
 
-🎯 Project Objectives
+🎯 Цели проекта
 
-Manage shipments and delivery orders
+Управление отправлениями и заказами на доставку;
 
-Track package status in real time
+Отслеживание статуса посылок в реальном времени;
 
-Provide structured API endpoints for logistics operations
+Предоставление структурированных API-эндпоинтов для логистических операций;
 
-Implement scalable folder architecture
+Реализация масштабируемой файловой архитектуры;
 
-Prepare the project for future deployment (Docker, CI/CD, Cloud)
+Подготовка проекта к будущему развертыванию (Docker, CI/CD, Cloud).
 
-🧠 Key Features
+🧠 Ключевые функции
 
-📦 Create and manage shipments
+📦 Создание и управление отправлениями;
 
-🚚 Track delivery status
+🚚 Отслеживание статуса доставки;
 
-👤 User management (sender / receiver)
+👤 Управление пользователями (отправитель / получатель);
 
-📍 Address & route handling
+📍 Обработка адресов и маршрутов;
 
-🗂️ Modular service-based backend structure
+🗂️ Модульная сервис-ориентированная архитектура бэкенда;
 
-🧪 Ready for testing integration
+🧪 Готовность к интеграции тестирования.
 
-🏗️ Tech Stack
-Layer	Technology
-Backend	Node.js / Express (or your backend tech)
-Database	MongoDB / PostgreSQL (choose what you use)
-API Style	RESTful API
-Version Control	Git & GitHub
-Development	VS Code
-📊 System Architecture
+🏗️ Технологический стек
+Слой	Технология
+Бэкенд	Node.js / Express
+База данных	MongoDB / PostgreSQL
+Стиль API	RESTful API
+Контроль версий	Git & GitHub
+Разработка	VS Code
+📊 Архитектура системы
 
-The project follows a modular layered architecture:
+Проект следует модульной многоуровневой архитектуре:
 
-Routes → Handle API endpoints
+Маршруты (Routes) → Обработка конечных точек API;
 
-Controllers → Business logic layer
+Контроллеры (Controllers) → Слой бизнес-логики;
 
-Services → Core operations
+Сервисы (Services) → Основные операции;
 
-Models → Database schema
+Модели (Models) → Схемы базы данных;
 
-Middleware → Authentication, validation, logging
+Промежуточное ПО (Middleware) → Аутентификация, валидация, логирование.
 
-This structure keeps the code clean, scalable, and production-ready.
+Такая структура поддерживает код в чистоте, делает его масштабируемым и готовым к продакшену.
 
-📁 Professional Folder Structure
+📁 Профессиональная структура папок
 
-Here is the recommended industry-level structure for your repo:
+Рекомендуемая отраслевая структура для вашего репозитория:
 
 ship-it/
 │
 ├── src/
-│   ├── config/            # Environment variables & DB config
-│   ├── controllers/       # Request handlers
-│   ├── services/          # Business logic
-│   ├── models/            # Database models
-│   ├── routes/            # API routes
-│   ├── middlewares/       # Auth, validation, error handling
-│   ├── utils/             # Helper functions
-│   └── app.js             # Express app setup
+│   ├── config/            # Конфигурация переменных окружения и БД
+│   ├── controllers/       # Обработчики запросов
+│   ├── services/          # Бизнес-логика
+│   ├── models/            # Модели базы данных
+│   ├── routes/            # API маршруты
+│   ├── middlewares/       # Аутентификация, валидация, обработка ошибок
+│   ├── utils/             # Вспомогательные функции
+│   └── app.js             # Настройка Express приложения
 │
-├── tests/                 # Unit & integration tests
-├── docs/                  # API documentation (Swagger/Postman)
-├── .env.example           # Environment variables template
+├── tests/                 # Модульные и интеграционные тесты
+├── docs/                  # Документация API (Swagger/Postman)
+├── .env.example           # Шаблон переменных окружения
 ├── package.json
 ├── README.md
-└── server.js              # Entry point
+└── server.js              # Точка входа
 
+Эта структура используется в реальных продакшен-системах.
 
-This structure is used in real production backend systems.
-
-⚙️ Installation & Setup
-# Clone the repository
+⚙️ Установка и настройка
+# Клонировать репозиторий
 git clone https://github.com/sayedkambizsadiqi456-ship-it
 
-# Navigate to the project
+# Перейти в папку проекта
 cd ship-it
 
-# Install dependencies
+# Установить зависимости
 npm install
 
-# Run the server
+# Запустить сервер
 npm run dev
 
-🔌 API Endpoints (Example)
-Method	Endpoint	Description
-POST	/api/shipments	Create shipment
-GET	/api/shipments	Get all shipments
-GET	/api/shipments/:id	Get shipment by ID
-PUT	/api/shipments/:id	Update shipment status
-DELETE	/api/shipments/:id	Delete shipment
-🧪 Testing
+🔌 Примеры API эндпоинтов
+Метод	Эндпоинт	Описание
+POST	/api/shipments	Создать отправление
+GET	/api/shipments	Получить все отправления
+GET	/api/shipments/:id	Получить отправление по ID
+PUT	/api/shipments/:id	Обновить статус отправления
+DELETE	/api/shipments/:id	Удалить отправление
+🧪 Тестирование
 npm test
 
 
-Planned:
+Запланировано:
 
-Unit testing (Jest / Mocha)
+Модульное тестирование (Jest / Mocha);
 
-API integration testing
+Интеграционное тестирование API.
 
-🚀 Future Improvements
+🚀 Планы по улучшению
 
-🔐 JWT Authentication & Role-based access
+🔐 JWT аутентификация и управление доступом на основе ролей;
 
-📦 Real-time tracking with WebSockets
+📦 Отслеживание в реальном времени с WebSockets;
 
-🗺️ Map integration for delivery routes
+🗺️ Интеграция карт для маршрутов доставки;
 
-🐳 Docker containerization
+🐳 Контейнеризация с Docker;
 
-☁️ Cloud deployment (AWS / Render)
+☁️ Развертывание в облаке (AWS / Render);
 
-📄 Swagger API documentation
+📄 Документация API Swagger.
 
-👨‍💻 Author
+👨‍💻 Автор
 
-Sayed Kambiz Sadiqi
+Сайед Камбиз Садики
 
 📧 Email: sayedkambizsadiqi456@gmail.com
 
