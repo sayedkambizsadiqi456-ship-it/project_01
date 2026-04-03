@@ -7,6 +7,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 RESTAURANT_NAME = "🍽️ Takhar Restaurant"
+CONTACT_IMAGE_URL = "https://raw.githubusercontent.com/sayedkambizsadiqi456-ship-it/project_01/main/takhar_iletisim.png"
 
 MENU = {
     "🥗 Meze & Salatalar": {
@@ -78,6 +79,7 @@ async def show_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_photo(photo=CONTACT_IMAGE_URL)
     await update.message.reply_text(
         "📞 Takhar Restaurant İletişim\n\n"
         "📱 Telefon: +90 212 XXX XX XX\n"
@@ -87,6 +89,7 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def location(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_photo(photo=CONTACT_IMAGE_URL)
     await update.message.reply_text(
         "📍 Konum\n\n"
         "Adres: Takhar Restaurant\n İstanbul, Türkiye\n\n"
