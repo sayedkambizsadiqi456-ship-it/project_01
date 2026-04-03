@@ -1,17 +1,12 @@
 import logging
 import asyncio
-from pathlib import Path
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes, ConversationHandler
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 RESTAURANT_NAME = "🍽️ Takhar Restaurant"
-loading_msg = {}
-
-DOWNLOADS_PATH = Path("C:/Users/paytakht/Downloads")
-CONTACT_IMAGE = DOWNLOADS_PATH / "takhar_iletisim.jpg.png"
 
 MENU = {
     "🥗 Meze & Salatalar": {
@@ -72,29 +67,17 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def show_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    chat_id = update.effective_chat.id
-    loading_msg[chat_id] = await update.message.reply_text("⏳ Menü yükleniyor...")
-    await asyncio.sleep(0.5)
-    
+    keyboard = []
     for category, items in MENU.items():
         item_text = "\n".join([f"  {name} - {price:,} T" for name, price in items.items()])
-        await context.bot.edit_message_text(
-            chat_id=chat_id,
-            message_id=loading_msg[chat_id].message_id,
-            text=f"{category}\n{item_text}"
-        )
+        keyboard.append([InlineKeyboardButton(category, callback_data=f"cat_{category}")])
     
-    keyboard = [[InlineKeyboardButton("➕ Sipariş Ver", callback_data="order")]]
-    await context.bot.edit_message_text(
-        chat_id=chat_id,
-        message_id=loading_msg[chat_id].message_id,
-        text="Siparişinizi başlatmak için tıklayın:",
+    await update.message.reply_text(
+        "🍽️ Menüyü Görüntüle\n\nBirini seçin:",
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
 async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if CONTACT_IMAGE.exists():
-        await update.message.reply_photo(photo=str(CONTACT_IMAGE))
     await update.message.reply_text(
         "📞 Takhar Restaurant İletişim\n\n"
         "📱 Telefon: +90 212 XXX XX XX\n"
@@ -104,8 +87,6 @@ async def contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 async def location(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if CONTACT_IMAGE.exists():
-        await update.message.reply_photo(photo=str(CONTACT_IMAGE))
     await update.message.reply_text(
         "📍 Konum\n\n"
         "Adres: Takhar Restaurant\n İstanbul, Türkiye\n\n"
